@@ -3,15 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyễn Văn A - Trang Cá Nhân</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <title>Giới Thiệu Bản Thân</title>
     <style>
-        /* ====== RESET & BASE ====== */
+        /* ===== RESET ===== */
         * {
             margin: 0;
             padding: 0;
@@ -23,289 +17,705 @@
         }
 
         body {
-            font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            color: #1a202c;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: #f8f9fa;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
             min-height: 100vh;
-            color: #334155;
-            line-height: 1.7;
-        }
-
-        /* ====== CONTAINER CHÍNH ====== */
-        .container {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 40px 24px;
-        }
-
-        /* ====== CARD PROFILE ====== */
-        .profile-card {
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 48px 40px;
-            box-shadow: 
-                0 4px 6px -1px rgba(0, 0, 0, 0.05),
-                0 10px 15px -3px rgba(0, 0, 0, 0.08);
-            text-align: center;
-        }
-
-        /* ====== ẢNH ĐẠI DIỆN ====== */
-        .avatar-wrapper {
-            margin-bottom: 28px;
-        }
-
-        .avatar {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #e2e8f0;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .avatar:hover {
-            transform: scale(1.03);
-            border-color: #94a3b8;
-        }
-
-        /* ====== TÊN & MÔ TẢ NGẮN ====== */
-        .name {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 8px;
-            letter-spacing: -0.02em;
-        }
-
-        .tagline {
-            font-size: 1rem;
-            color: #64748b;
-            font-weight: 400;
-            margin-bottom: 32px;
-            padding: 0 20px;
-        }
-
-        /* ====== ĐƯỜNG PHÂN CÁCH ====== */
-        .divider {
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #94a3b8, #cbd5e1);
-            border-radius: 2px;
-            margin: 0 auto 32px;
-        }
-
-        /* ====== PHẦN GIỚI THIỆU ====== */
-        .about-section {
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #94a3b8;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 16px;
-        }
-
-        .about-text {
-            font-size: 1rem;
-            color: #475569;
-            text-align: left;
-            line-height: 1.8;
-            background: #f8fafc;
-            padding: 24px;
-            border-radius: 16px;
-            border-left: 4px solid #cbd5e1;
-        }
-
-        /* ====== PHẦN LIÊN KẾT ====== */
-        .links-section {
-            margin-bottom: 16px;
-        }
-
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-top: 16px;
-        }
-
-        .link-item {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 14px 20px;
-            background: #f8fafc;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #475569;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.25s ease;
-            border: 1px solid transparent;
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            overflow: hidden;
         }
 
-        .link-item:hover {
-            background: #ffffff;
-            border-color: #cbd5e1;
-            color: #1e293b;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: 1;
         }
 
-        /* Icon styling */
-        .link-icon {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background:
+                    radial-gradient(circle at 20% 50%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
+            animation: floatBubbles 30s ease-in-out infinite;
+            z-index: 0;
         }
 
-        /* Màu riêng cho từng mạng xã hội */
-        .link-item.facebook:hover { border-color: #1877f2; color: #1877f2; }
-        .link-item.zalo:hover { border-color: #0068ff; color: #0068ff; }
-        .link-item.email:hover { border-color: #ea4335; color: #ea4335; }
-        .link-item.github:hover { border-color: #24292e; color: #24292e; }
+        @keyframes floatBubbles {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 30px) scale(1.1); }
+        }
 
-        /* ====== FOOTER ====== */
-        .footer {
-            margin-top: 40px;
-            padding-top: 24px;
-            border-top: 1px solid #e2e8f0;
+        .hero-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
+            padding: 40px 20px;
+            animation: heroFadeIn 1.5s ease-out;
         }
 
-        .footer-text {
-            font-size: 0.85rem;
-            color: #94a3b8;
+        @keyframes heroFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .avatar-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+            animation: avatarAppear 1.2s ease-out 0.3s backwards;
+        }
+
+        @keyframes avatarAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0.7) rotate(-10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .avatar-container::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: rotateBorder 20s linear infinite;
+        }
+
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .avatar {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .avatar:hover {
+            transform: scale(1.08);
+        }
+
+        .avatar-placeholder {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            border: 8px solid rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 25px;
+            letter-spacing: -3px;
+            animation: titleSlide 1s ease-out 0.5s backwards;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes titleSlide {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-tagline {
+            font-size: 1.65rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.9;
+            animation: taglineSlide 1s ease-out 0.7s backwards;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes taglineSlide {
+            0% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 25px;
+            position: relative;
+        }
+
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            animation: scrollDot 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        @keyframes scrollDot {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 30px; }
+        }
+
+        /* ===== SECTION CHUNG ===== */
+        section {
+            padding: 120px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2d3748;
+            position: relative;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #718096;
+            margin-bottom: 70px;
+            font-weight: 300;
+        }
+
+        .section-divider {
+            width: 100px;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            margin: 0 auto 70px;
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        .section-divider::before {
+            left: -20px;
+        }
+
+        .section-divider::after {
+            right: -20px;
+        }
+
+        /* ===== GIỚI THIỆU ===== */
+        .about {
+            background: white;
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, #f8f9fa, white);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        .about-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-text {
+            font-size: 1.3rem;
+            line-height: 2.1;
+            color: #4a5568;
+            margin-bottom: 35px;
+            text-align: justify;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .about-text::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+        }
+
+        .highlight {
+            color: #667eea;
+            font-weight: 600;
+            position: relative;
+        }
+
+        /* ===== LIÊN KẾT - BOX DUY NHẤT ===== */
+        .contact {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .contact::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(118, 75, 162, 0.1) 0%, transparent 70%);
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, 50px); }
+        }
+
+        .contact-box {
+            background: white;
+            padding: 60px 50px;
+            border-radius: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.12);
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        .contact-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            border-radius: 30px 30px 0 0;
+        }
+
+        .contact-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 25px 15px;
+            border-radius: 16px;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+        }
+
+        .contact-item:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            transform: translateY(-8px);
+        }
+
+        .contact-item-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-item:hover .contact-item-icon {
+            transform: scale(1.15) rotate(15deg);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+        }
+
+        .contact-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            font-size: 0.95rem;
+            color: #718096;
+            line-height: 1.5;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        }
+
+        footer p {
+            font-size: 1.15rem;
+            opacity: 0.95;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
         }
 
         .heart {
-            color: #f87171;
+            color: #ff6b6b;
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite;
         }
 
-        /* ====== RESPONSIVE ====== */
-        @media (max-width: 600px) {
-            .container {
-                padding: 24px 16px;
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10%, 30% { transform: scale(1.2); }
+            20%, 40% { transform: scale(1); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
             }
 
-            .profile-card {
-                padding: 36px 24px;
-                border-radius: 20px;
+            .hero-tagline {
+                font-size: 1.3rem;
             }
 
-            .avatar {
-                width: 120px;
-                height: 120px;
+            .avatar, .avatar-placeholder {
+                width: 180px;
+                height: 180px;
             }
 
-            .name {
-                font-size: 1.6rem;
+            .section-title {
+                font-size: 2.5rem;
             }
 
-            .tagline {
-                font-size: 0.95rem;
-                padding: 0;
-            }
-
-            .links-grid {
-                grid-template-columns: 1fr;
+            section {
+                padding: 80px 20px;
             }
 
             .about-text {
-                padding: 20px;
-                font-size: 0.95rem;
+                font-size: 1.15rem;
+            }
+
+            .contact-box {
+                padding: 40px 30px;
+            }
+
+            .contact-items {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.1rem;
+            }
+
+            .avatar, .avatar-placeholder {
+                width: 150px;
+                height: 150px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-items {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
+<?php
+// ===== CẤU HÌNH THÔNG TIN CÁ NHÂN =====
+$profile = [
+    'name' => 'GIANG MINH',
+    'avatar' => 'https://cdn2.fptshop.com.vn/unsafe/800x0/avatar_hai_9_a3450cfe46.jpg', // Để trống nếu dùng placeholder, hoặc điền đường dẫn ảnh: 'images/avatar.jpg'
+    'tagline' => 'Một người dễ gần, luôn cầu tiến và làm việc với trách nhiệm',
+    'about' => [
+        'Rất vui được gặp bạn! Tôi là một người yêu thích <span class="highlight">giao tiếp và kết nối</span> với mọi người xung quanh. Với tôi, mỗi cuộc trò chuyện đều là một cơ hội để học hỏi điều mới mẻ và mở rộng tầm nhìn.',
+        'Trong công việc và cuộc sống, tôi luôn cố gắng duy trì thái độ <span class="highlight">tích cực và trách nhiệm</span>. Tôi tin rằng sự chân thành và nhiệt huyết là chìa khóa để xây dựng những mối quan hệ bền vững và đạt được thành công.',
+        'Tôi không ngừng <span class="highlight">học hỏi và phát triển bản thân</span> mỗi ngày. Dù là những thách thức nhỏ hay lớn, tôi luôn sẵn sàng đón nhận và biến chúng thành động lực để tiến lên phía trước.',
+        'Nếu bạn muốn kết nối, chia sẻ hoặc cùng nhau phát triển, đừng ngần ngại liên hệ với tôi qua các kênh bên dưới nhé!'
+    ]
+];
+
+// ===== CẤU HÌNH LIÊN HỆ =====
+$contacts = [
+    [
+        'icon' => '📘',
+        'title' => 'Facebook',
+        'description' => 'Kết nối trên Facebook',
+        'url' => 'https://facebook.com/yourprofile'
+    ],
+    [
+        'icon' => '💬',
+        'title' => 'Zalo',
+        'description' => 'Chat qua Zalo',
+        'url' => 'https://zalo.me/0123456789'
+    ],
+    [
+        'icon' => '✉️',
+        'title' => 'Email',
+        'description' => 'Gửi email',
+        'url' => 'mailto:youremail@example.com'
+    ],
+    [
+        'icon' => '📱',
+        'title' => 'Telegram',
+        'description' => 'Nhắn Telegram',
+        'url' => 'https://t.me/yourusername'
+    ],
+    [
+        'icon' => '🌐',
+        'title' => 'Website',
+        'description' => 'Ghé thăm website',
+        'url' => 'https://yourwebsite.com'
+    ],
+    [
+        'icon' => '💼',
+        'title' => 'LinkedIn',
+        'description' => 'Kết nối LinkedIn',
+        'url' => 'https://linkedin.com/in/yourprofile'
+    ]
+    // Thêm nhiều liên hệ khác tại đây
+];
+?>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="avatar-container">
+            <?php if (!empty($profile['avatar'])): ?>
+                <img src="<?php echo htmlspecialchars($profile['avatar']); ?>" alt="Avatar" class="avatar">
+            <?php else: ?>
+                <div class="avatar-placeholder">👤</div>
+            <?php endif; ?>
+        </div>
+
+        <h1><?php echo htmlspecialchars($profile['name']); ?></h1>
+        <p class="hero-tagline"><?php echo htmlspecialchars($profile['tagline']); ?></p>
+    </div>
+
+    <div class="scroll-indicator">
+        <span></span>
+    </div>
+</section>
+
+<!-- ===== PHẦN GIỚI THIỆU ===== -->
+<section class="about">
     <div class="container">
-        <div class="profile-card">
-            
-            <!-- ẢNH ĐẠI DIỆN - Thay link ảnh của bạn vào đây -->
-            <div class="avatar-wrapper">
-                <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" 
-                    alt="Ảnh đại diện" 
-                    class="avatar"
-                >
-            </div>
+        <h2 class="section-title">Xin Chào!</h2>
+        <div class="section-divider"></div>
 
-            <!-- TÊN - Thay tên của bạn vào đây -->
-            <h1 class="name">Nguyễn Văn A</h1>
-
-            <!-- MÔ TẢ NGẮN - Thay mô tả của bạn vào đây -->
-            <p class="tagline">Người thân thiện, hoà đồng, luôn sẵn sàng học hỏi và chia sẻ</p>
-
-            <div class="divider"></div>
-
-            <!-- PHẦN GIỚI THIỆU -->
-            <div class="about-section">
-                <h2 class="section-title">Giới thiệu</h2>
-                <!-- Thay nội dung giới thiệu của bạn vào đây -->
-                <p class="about-text">
-                    Xin chào! Mình là một người yêu thích cuộc sống đơn giản nhưng ý nghĩa. 
-                    Mình tin rằng sự chân thành và thái độ tích cực là chìa khóa để kết nối với mọi người xung quanh.
-                    <br><br>
-                    Trong công việc, mình luôn cố gắng hoàn thành tốt nhất có thể, đặt trách nhiệm và sự nghiêm túc lên hàng đầu. 
-                    Ngoài giờ làm, mình thích đọc sách, nghe nhạc và dành thời gian cho gia đình, bạn bè.
-                    <br><br>
-                    Nếu bạn muốn kết nối hoặc trao đổi điều gì, đừng ngần ngại liên hệ với mình nhé!
-                </p>
-            </div>
-
-            <!-- PHẦN LIÊN KẾT -->
-            <div class="links-section">
-                <h2 class="section-title">Liên kết của tôi</h2>
-                <div class="links-grid">
-                    
-                    <!-- FACEBOOK - Thay link của bạn -->
-                    <a href="https://facebook.com/your-profile" class="link-item facebook" target="_blank" rel="noopener">
-                        <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                        Facebook
-                    </a>
-
-                    <!-- ZALO - Thay số điện thoại -->
-                    <a href="https://zalo.me/0123456789" class="link-item zalo" target="_blank" rel="noopener">
-                        <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 17.785c-.137.096-.278.186-.423.27a8.501 8.501 0 01-4.471 1.26c-4.694 0-8.5-3.806-8.5-8.5 0-4.694 3.806-8.5 8.5-8.5s8.5 3.806 8.5 8.5a8.467 8.467 0 01-1.26 4.471c-.084.145-.174.286-.27.423l.424 2.546-2.5-.47z"/>
-                        </svg>
-                        Zalo
-                    </a>
-
-                    <!-- EMAIL - Thay email của bạn -->
-                    <a href="mailto:email@example.com" class="link-item email">
-                        <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                        </svg>
-                        Email
-                    </a>
-
-                    <!-- GITHUB / WEBSITE - Thay link của bạn -->
-                    <a href="https://github.com/your-username" class="link-item github" target="_blank" rel="noopener">
-                        <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        GitHub
-                    </a>
-
-                </div>
-            </div>
-
-            <!-- FOOTER -->
-            <div class="footer">
-                <p class="footer-text">
-                    Được tạo với <span class="heart">♥</span> · 2025
-                </p>
-            </div>
-
+        <div class="about-content">
+            <?php foreach ($profile['about'] as $paragraph): ?>
+                <p class="about-text"><?php echo $paragraph; ?></p>
+            <?php endforeach; ?>
         </div>
     </div>
+</section>
+
+<!-- ===== PHẦN LIÊN KẾT ===== -->
+<section class="contact">
+    <div class="container">
+        <h2 class="section-title">Kết Nối Với Tôi</h2>
+        <p class="section-subtitle">Hãy liên hệ qua bất kỳ kênh nào bạn thấy tiện nhất</p>
+
+        <div class="contact-box">
+            <div class="contact-items">
+                <?php foreach ($contacts as $contact): ?>
+                    <a href="<?php echo htmlspecialchars($contact['url']); ?>" target="_blank" class="contact-item">
+                        <div class="contact-item-icon"><?php echo $contact['icon']; ?></div>
+                        <h4><?php echo htmlspecialchars($contact['title']); ?></h4>
+                        <p><?php echo htmlspecialchars($contact['description']); ?></p>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>&copy; 2024 Được thiết kế với <?php echo htmlspecialchars($profile['name']); ?> <span class="heart">❤</span></p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+    // Animation khi scroll
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -80px 0px'
+    };
+
+    const fadeObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Áp dụng cho các phần tử cần animation
+    document.querySelectorAll('.about-content, .contact-box').forEach(element => {
+        fadeObserver.observe(element);
+    });
+
+    // Smooth scroll cho scroll indicator
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function() {
+            const aboutSection = document.querySelector('.about');
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+</script>
 
 </body>
 </html>
