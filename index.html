@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -571,75 +572,16 @@
 </head>
 <body>
 
-<?php
-// ===== CẤU HÌNH THÔNG TIN CÁ NHÂN =====
-$profile = [
-    'name' => 'GIANG MINH',
-    'avatar' => 'https://cdn2.fptshop.com.vn/unsafe/800x0/avatar_hai_9_a3450cfe46.jpg', // Để trống nếu dùng placeholder, hoặc điền đường dẫn ảnh: 'images/avatar.jpg'
-    'tagline' => 'Một người dễ gần, luôn cầu tiến và làm việc với trách nhiệm',
-    'about' => [
-        'Rất vui được gặp bạn! Tôi là một người yêu thích <span class="highlight">giao tiếp và kết nối</span> với mọi người xung quanh. Với tôi, mỗi cuộc trò chuyện đều là một cơ hội để học hỏi điều mới mẻ và mở rộng tầm nhìn.',
-        'Trong công việc và cuộc sống, tôi luôn cố gắng duy trì thái độ <span class="highlight">tích cực và trách nhiệm</span>. Tôi tin rằng sự chân thành và nhiệt huyết là chìa khóa để xây dựng những mối quan hệ bền vững và đạt được thành công.',
-        'Tôi không ngừng <span class="highlight">học hỏi và phát triển bản thân</span> mỗi ngày. Dù là những thách thức nhỏ hay lớn, tôi luôn sẵn sàng đón nhận và biến chúng thành động lực để tiến lên phía trước.',
-        'Nếu bạn muốn kết nối, chia sẻ hoặc cùng nhau phát triển, đừng ngần ngại liên hệ với tôi qua các kênh bên dưới nhé!'
-    ]
-];
-
-// ===== CẤU HÌNH LIÊN HỆ =====
-$contacts = [
-    [
-        'icon' => '📘',
-        'title' => 'Facebook',
-        'description' => 'Kết nối trên Facebook',
-        'url' => 'https://facebook.com/yourprofile'
-    ],
-    [
-        'icon' => '💬',
-        'title' => 'Zalo',
-        'description' => 'Chat qua Zalo',
-        'url' => 'https://zalo.me/0123456789'
-    ],
-    [
-        'icon' => '✉️',
-        'title' => 'Email',
-        'description' => 'Gửi email',
-        'url' => 'mailto:youremail@example.com'
-    ],
-    [
-        'icon' => '📱',
-        'title' => 'Telegram',
-        'description' => 'Nhắn Telegram',
-        'url' => 'https://t.me/yourusername'
-    ],
-    [
-        'icon' => '🌐',
-        'title' => 'Website',
-        'description' => 'Ghé thăm website',
-        'url' => 'https://yourwebsite.com'
-    ],
-    [
-        'icon' => '💼',
-        'title' => 'LinkedIn',
-        'description' => 'Kết nối LinkedIn',
-        'url' => 'https://linkedin.com/in/yourprofile'
-    ]
-    // Thêm nhiều liên hệ khác tại đây
-];
-?>
 
 <!-- ===== HERO SECTION ===== -->
 <section class="hero">
     <div class="hero-content">
         <div class="avatar-container">
-            <?php if (!empty($profile['avatar'])): ?>
-                <img src="<?php echo htmlspecialchars($profile['avatar']); ?>" alt="Avatar" class="avatar">
-            <?php else: ?>
-                <div class="avatar-placeholder">👤</div>
-            <?php endif; ?>
-        </div>
+                            <img src="https://cdn2.fptshop.com.vn/unsafe/800x0/avatar_hai_9_a3450cfe46.jpg" alt="Avatar" class="avatar">
+                    </div>
 
-        <h1><?php echo htmlspecialchars($profile['name']); ?></h1>
-        <p class="hero-tagline"><?php echo htmlspecialchars($profile['tagline']); ?></p>
+        <h1>GIANG MINH</h1>
+        <p class="hero-tagline">Một người dễ gần, luôn cầu tiến và làm việc với trách nhiệm</p>
     </div>
 
     <div class="scroll-indicator">
@@ -654,10 +596,11 @@ $contacts = [
         <div class="section-divider"></div>
 
         <div class="about-content">
-            <?php foreach ($profile['about'] as $paragraph): ?>
-                <p class="about-text"><?php echo $paragraph; ?></p>
-            <?php endforeach; ?>
-        </div>
+                            <p class="about-text">Rất vui được gặp bạn! Tôi là một người yêu thích <span class="highlight">giao tiếp và kết nối</span> với mọi người xung quanh. Với tôi, mỗi cuộc trò chuyện đều là một cơ hội để học hỏi điều mới mẻ và mở rộng tầm nhìn.</p>
+                            <p class="about-text">Trong công việc và cuộc sống, tôi luôn cố gắng duy trì thái độ <span class="highlight">tích cực và trách nhiệm</span>. Tôi tin rằng sự chân thành và nhiệt huyết là chìa khóa để xây dựng những mối quan hệ bền vững và đạt được thành công.</p>
+                            <p class="about-text">Tôi không ngừng <span class="highlight">học hỏi và phát triển bản thân</span> mỗi ngày. Dù là những thách thức nhỏ hay lớn, tôi luôn sẵn sàng đón nhận và biến chúng thành động lực để tiến lên phía trước.</p>
+                            <p class="about-text">Nếu bạn muốn kết nối, chia sẻ hoặc cùng nhau phát triển, đừng ngần ngại liên hệ với tôi qua các kênh bên dưới nhé!</p>
+                    </div>
     </div>
 </section>
 
@@ -669,21 +612,44 @@ $contacts = [
 
         <div class="contact-box">
             <div class="contact-items">
-                <?php foreach ($contacts as $contact): ?>
-                    <a href="<?php echo htmlspecialchars($contact['url']); ?>" target="_blank" class="contact-item">
-                        <div class="contact-item-icon"><?php echo $contact['icon']; ?></div>
-                        <h4><?php echo htmlspecialchars($contact['title']); ?></h4>
-                        <p><?php echo htmlspecialchars($contact['description']); ?></p>
+                                    <a href="https://facebook.com/yourprofile" target="_blank" class="contact-item">
+                        <div class="contact-item-icon">📘</div>
+                        <h4>Facebook</h4>
+                        <p>Kết nối trên Facebook</p>
                     </a>
-                <?php endforeach; ?>
-            </div>
+                                    <a href="https://zalo.me/0123456789" target="_blank" class="contact-item">
+                        <div class="contact-item-icon">💬</div>
+                        <h4>Zalo</h4>
+                        <p>Chat qua Zalo</p>
+                    </a>
+                                    <a href="mailto:youremail@example.com" target="_blank" class="contact-item">
+                        <div class="contact-item-icon">✉️</div>
+                        <h4>Email</h4>
+                        <p>Gửi email</p>
+                    </a>
+                                    <a href="https://t.me/yourusername" target="_blank" class="contact-item">
+                        <div class="contact-item-icon">📱</div>
+                        <h4>Telegram</h4>
+                        <p>Nhắn Telegram</p>
+                    </a>
+                                    <a href="https://yourwebsite.com" target="_blank" class="contact-item">
+                        <div class="contact-item-icon">🌐</div>
+                        <h4>Website</h4>
+                        <p>Ghé thăm website</p>
+                    </a>
+                                    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-item">
+                        <div class="contact-item-icon">💼</div>
+                        <h4>LinkedIn</h4>
+                        <p>Kết nối LinkedIn</p>
+                    </a>
+                            </div>
         </div>
     </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
 <footer>
-    <p>&copy; 2024 Được thiết kế với <?php echo htmlspecialchars($profile['name']); ?> <span class="heart">❤</span></p>
+    <p>&copy; 2024 Được thiết kế với GIANG MINH <span class="heart">❤</span></p>
 </footer>
 
 <!-- ===== JAVASCRIPT ===== -->
